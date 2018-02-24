@@ -1,3 +1,6 @@
 [submodule "bookings"]
 	path = bookings
 	url = https://github.com/alexakarpov/bookings
+[submodule "eplk"]
+	path = eplk
+	url = https://github.com/alexakarpov/eplk
