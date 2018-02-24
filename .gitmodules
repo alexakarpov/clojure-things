@@ -1,0 +1,3 @@
+[submodule "bookings"]
+	path = bookings
+	url = https://github.com/alexakarpov/bookings
