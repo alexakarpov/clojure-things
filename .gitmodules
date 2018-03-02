@@ -4,3 +4,6 @@
 [submodule "eplk"]
 	path = eplk
 	url = https://github.com/alexakarpov/eplk
+[submodule "problems"]
+	path = problems
+	url = https://github.com/alexakarpov/problems
