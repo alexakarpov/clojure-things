@@ -82,24 +82,13 @@
             :r nil}}}))
 
 
-(defmacro list-comp [[binding seq-expr & bindings] body-expr]
-  (cond (not binding)
-        `(list ~body-expr)
-
-        (= :when binding)
-        `(when ~seq-expr (list-comp ~bindings ~body-expr))
-
-        :else
-        `(mapcat (fn [~binding] (list-comp ~bindings ~body-expr))
-                 ~seq-expr)))
-
 (defn permutations [xs]
   (if-not (seq xs)
     (list ())
-    (list-comp [x xs
-                ys (permutations (list-comp [z xs :when (not= z x)] 
-                                            z))]
-               (conj ys x))))
+    (for [x xs
+          ys (permutations (for [z xs :when (not= z x)] 
+                             z))]
+      (conj ys x))))
 
 (defn triplets [[a0 a1 a2] [b0 b1 b2]]
   (let [f (fn [a b]
@@ -112,4 +101,3 @@
     (str (count (filter #(= % :a) ds))
          " "
          (count (filter #(= % :b) ds)))))
-

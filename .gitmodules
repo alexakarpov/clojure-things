@@ -7,3 +7,6 @@
 [submodule "problems"]
 	path = problems
 	url = https://github.com/alexakarpov/problems
+[submodule "brave-and-true"]
+	path = brave-and-true
+	url = https://github.com/alexakarpov/brave-and-true
