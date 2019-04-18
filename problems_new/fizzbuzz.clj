@@ -15,18 +15,17 @@
 
 (deftest fizz-test
   (is (= (fizzbuzz 2)
-         2))
+         [2 2]))
   (is (= (fizzbuzz 3)
          [3 "Fizz"]))
   (is (= (map fizzbuzz (range 1 11))
-         [1 2 [3 "Fizz"] 4 [5 "Buzz"] [6 "Fizz"] 7 8 [9 "Fizz"] [10 "Buzz"]]))
+         [[1 1] [2 2] [3 "Fizz"] [4 4] [5 "Buzz"] [6 "Fizz"] [7 7] [8 8] [9 "Fizz"] [10 "Buzz"]]))
   (is (= (fizzbuzz 51)
          [51 "FizzBuzz"])))
 
 (fizzbuzz 3)
 
-(run-tests)
-
 (doseq [[f s] (map fizzbuzz (range 1 101))]
   (println f s))
 
+(run-tests)
