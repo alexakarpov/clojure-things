@@ -8,24 +8,27 @@
                 (includes? (str %) "5") 
                 (zero? (mod % 5)))]
     (cond
-      (and (fizz? n) (buzz? n)) [n "FizzBuzz"]
-      (fizz? n) [n "Fizz"]
-      (buzz? n) [n "Buzz"]
-      :else [n n])))
+      (and (fizz? n) (buzz? n)) "FizzBuzz"
+      (fizz? n) "Fizz"
+      (buzz? n) "Buzz"
+      :else n)))
 
 (deftest fizz-test
   (is (= (fizzbuzz 2)
-         [2 2]))
+         2))
   (is (= (fizzbuzz 3)
-         [3 "Fizz"]))
+         3))
   (is (= (map fizzbuzz (range 1 11))
-         [[1 1] [2 2] [3 "Fizz"] [4 4] [5 "Buzz"] [6 "Fizz"] [7 7] [8 8] [9 "Fizz"] [10 "Buzz"]]))
+         [1 2 "Fizz" 4 "Buzz" "Fizz" 7 8 "Fizz" "Buzz"]))
   (is (= (fizzbuzz 51)
-         [51 "FizzBuzz"])))
+         "FizzBuzz")))
 
 (fizzbuzz 3)
 
-(doseq [[f s] (map fizzbuzz (range 1 101))]
-  (println f s))
+(let [nums (range 1 101)
+      fbz (map fizzbuzz nums)
+      pairz (map vector nums fbz)]
+  (doseq [[f s] pairz]
+    (println f s)))
 
 (run-tests)
