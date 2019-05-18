@@ -5,7 +5,7 @@
 (defn fizzbuzz [n]
   (let [fizz? #(zero? (mod % 3))
         buzz? #(or
-                (includes? (str %) "5") 
+                (includes? (str %) "5")
                 (zero? (mod % 5)))]
     (cond
       (and (fizz? n) (buzz? n)) "FizzBuzz"
@@ -17,13 +17,12 @@
   (is (= (fizzbuzz 2)
          2))
   (is (= (fizzbuzz 3)
-         3))
+         "Fizz"))
   (is (= (map fizzbuzz (range 1 11))
          [1 2 "Fizz" 4 "Buzz" "Fizz" 7 8 "Fizz" "Buzz"]))
   (is (= (fizzbuzz 51)
          "FizzBuzz")))
 
-(fizzbuzz 3)
 
 (let [nums (range 1 101)
       fbz (map fizzbuzz nums)
