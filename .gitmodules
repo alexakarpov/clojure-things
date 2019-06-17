@@ -4,6 +4,3 @@
 [submodule "eplk"]
 	path = eplk
 	url = https://github.com/alexakarpov/eplk
-[submodule "brave-and-true"]
-	path = brave-and-true
-	url = https://github.com/alexakarpov/brave-and-true
